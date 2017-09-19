@@ -1,0 +1,47 @@
+# Logical Expressions Lab
+- Logical Operators
+    - && 
+       - AND
+        - The result of "A && B" is true in the case that both A and B are true expressions
+    - ||
+        - OR
+        - Result of "A || B" will be true if either values are true
+    - !
+        - NOT
+        - The result is the opposite of the intended result
+- De Morgan's Laws
+    - Associative
+        - ((A || B) || C = A || (B || C)
+        - (A && B) && C = A && (B && C)
+    - Commutative
+        - A || B = B || A
+        - A && B = B && A
+    - Distributive
+        - A && (B || C) = A && B || A && C
+        - A || (B && C) = (A || B) && (A || C)
+    - Identity
+        - A || A = A
+        - A && A = A
+- De Morgan's Theorem
+      - !( A || B) = !A && !B
+          - The line states that the inverse of A OR B is equivalent to the inverse of of and AND the inverse of B
+      - !( A && B) = !A || !B
+          - The inverse of A ANDB is the same or the inverse of A OR the inverse of B
+- Operator Precedence
+    - Describes the order in which operators are carried out by the compiler within a single expression
+        - () Parentheses
+        - ! Logical NOT
+        - * / % Multiplication, Division, and Modulus
+        - + - Addittion and subtraction
+        - < <= > >= Less/Greater Than Less/Greater Than or Equal To
+        - == != Equal To and Not Equal to
+        - && Logical AND
+        - || Logical OR
+        - = Assignment
+        
+# Algorithm to Solve Lab
+- Must follow precendence.
+- Keep track using working variables (workingVar)
+- Begin with checking for parentheses
+    - Evaluate all things in parentheses
+- Find and apply all Logical NOTs
