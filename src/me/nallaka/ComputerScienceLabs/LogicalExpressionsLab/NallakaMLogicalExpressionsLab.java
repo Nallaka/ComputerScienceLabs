@@ -24,8 +24,14 @@ public class NallakaMLogicalExpressionsLab {
         String exp = kb.nextLine();
         while(exp.length()!=1){
 
-            //Checking for first De Morgan's law and implementing the law to the exp string
+            /*
+            * De Morgan's First Law
+            */
+
+            //Creating a boolean to keep track (in each loop) whether De Morgan's first law is used
             boolean deMorgansLawUsed = false;
+
+            //Checking for and replacing all instances of De Morgan's first law with their equivalents
             if (exp.contains("!(T||T)")) {
                 exp = exp.replaceAll("!\\(T\\|\\|T\\)", "!T&&!T");
                 deMorgansLawUsed = true;
@@ -42,14 +48,20 @@ public class NallakaMLogicalExpressionsLab {
                 exp = exp.replaceAll("!\\(F\\|\\|F\\)", "!F&&!F");
                 deMorgansLawUsed = true;
             }
-            if (deMorgansLawUsed) {
+
+            /*
+            * De Morgan's Second Law
+            */
+
+            //Checking if De Morgan's law is used in this loop instance and if so, printing the result of changes
+            if (exp.length() != 1 && deMorgansLawUsed) {
                 System.out.println(exp);
             }
 
-
-            //Checking for 2nd de Morgan's law and implementing the law to the exp string
+            //Creating a boolean to keep track (in each loop) whether De Morgan's second law is used
             boolean deMorgansSecondLawUsed = false;
 
+            //Checking for and replacing all instances of De Morgan's second law with their equivalents
             if (exp.contains("!(T&&T)")) {
                 exp = exp.replaceAll("!\\(T&&T\\)", "!T||!T");
                 deMorgansSecondLawUsed = true;
@@ -67,11 +79,16 @@ public class NallakaMLogicalExpressionsLab {
                 deMorgansSecondLawUsed = true;
             }
 
-            if (deMorgansSecondLawUsed) {
+            //Checking if De Morgan's second law is used in this loop instance and if so, printing the result of changes
+            if (exp.length() != 1 && deMorgansSecondLawUsed) {
                 System.out.println(exp);
             }
 
-            //Checking for Logical NOT "!" statements and replacing all instances of that with the respective boolean value
+            /*
+            * Logical NOT's
+            */
+
+            //Creating a boolean to keep track (in each loop) whether Logical NOT's are used
             boolean logicalNotUsed = false;
 
             if (exp.contains("!F")) {
@@ -83,11 +100,16 @@ public class NallakaMLogicalExpressionsLab {
                 logicalNotUsed = true;
             }
 
-            if (logicalNotUsed) {
+            //Checking if logical NOT's are used in this loop instance and if so, printing the result of changes
+            if (exp.length() != 1 && logicalNotUsed) {
                 System.out.println(exp);
             }
 
-            //Checking all logical OR "||" expressions
+            /*
+            * Logical OR's
+            */
+
+            //Creating a boolean to keep track (in each loop) whether Logical OR's are used
             boolean logicalOrUsed = false;
 
             if (exp.contains("T||T")) {
@@ -107,11 +129,16 @@ public class NallakaMLogicalExpressionsLab {
                 logicalOrUsed = true;
             }
 
-            if (logicalOrUsed) {
+            //Checking if logical OR's are used in this loop instance and if so, printing the result of changes
+            if (exp.length() != 1 && logicalOrUsed) {
                 System.out.println(exp);
             }
 
-            //Checking all logical AND "&&" expressions
+            /*
+            * Logical AND's
+            */
+
+            //Creating a boolean to keep track (in each loop) whether Logical AND's are used
             boolean logicalAndUsed = false;
 
             if (exp.contains("T&&T")) {
@@ -131,9 +158,11 @@ public class NallakaMLogicalExpressionsLab {
                 logicalAndUsed = true;
             }
 
-            if (logicalAndUsed) {
+            //Checking if logical AND's are used in this loop instance and if so, printing the result of changes
+            if (exp.length() != 1 && logicalAndUsed) {
                 System.out.println(exp);
             }
         }
+        System.out.println(exp);
     }
 }
