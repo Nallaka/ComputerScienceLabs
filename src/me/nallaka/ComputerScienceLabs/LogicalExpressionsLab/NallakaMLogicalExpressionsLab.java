@@ -56,6 +56,7 @@ public class NallakaMLogicalExpressionsLab {
             //Checking if De Morgan's law is used in this loop instance and if so, printing the result of changes
             if (exp.length() != 1 && deMorgansLawUsed) {
                 System.out.println(exp);
+                continue;
             }
 
             //Creating a boolean to keep track (in each loop) whether De Morgan's second law is used
@@ -82,6 +83,7 @@ public class NallakaMLogicalExpressionsLab {
             //Checking if De Morgan's second law is used in this loop instance and if so, printing the result of changes
             if (exp.length() != 1 && deMorgansSecondLawUsed) {
                 System.out.println(exp);
+                continue;
             }
 
             /*
@@ -103,6 +105,7 @@ public class NallakaMLogicalExpressionsLab {
             //Checking if logical NOT's are used in this loop instance and if so, printing the result of changes
             if (exp.length() != 1 && logicalNotUsed) {
                 System.out.println(exp);
+                continue;
             }
 
             /*
@@ -132,6 +135,7 @@ public class NallakaMLogicalExpressionsLab {
             //Checking if logical OR's are used in this loop instance and if so, printing the result of changes
             if (exp.length() != 1 && logicalOrUsed) {
                 System.out.println(exp);
+                continue;
             }
 
             /*
@@ -161,6 +165,7 @@ public class NallakaMLogicalExpressionsLab {
             //Checking if logical AND's are used in this loop instance and if so, printing the result of changes
             if (exp.length() != 1 && logicalAndUsed) {
                 System.out.println(exp);
+                continue;
             }
         }
         System.out.println(exp);
