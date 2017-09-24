@@ -25,6 +25,28 @@ public class NallakaMLogicalExpressionsLab {
         while(exp.length()!=1){
 
             /*
+            * Logical NOT's
+            */
+
+            //Creating a boolean to keep track (in each loop) whether Logical NOT's are used
+            boolean logicalNotUsed = false;
+
+            if (exp.contains("!F")) {
+                exp = exp = exp.replaceAll("!F", "T");
+                logicalNotUsed = true;
+            }
+            if (exp.contains("!T")) {
+                exp = exp.replaceAll("!T", "F");
+                logicalNotUsed = true;
+            }
+
+            //Checking if logical NOT's are used in this loop instance and if so, printing the result of changes
+            if (exp.length() != 1 && logicalNotUsed) {
+                System.out.println(exp);
+                continue;
+            }
+
+            /*
             * De Morgan's First Law
             */
 
@@ -87,34 +109,38 @@ public class NallakaMLogicalExpressionsLab {
             }
 
             /*
-            * Logical NOT's
-            */
-
-            //Creating a boolean to keep track (in each loop) whether Logical NOT's are used
-            boolean logicalNotUsed = false;
-
-            if (exp.contains("!F")) {
-                exp = exp = exp.replaceAll("!F", "T");
-                logicalNotUsed = true;
-            }
-            if (exp.contains("!T")) {
-                exp = exp.replaceAll("!T", "F");
-                logicalNotUsed = true;
-            }
-
-            //Checking if logical NOT's are used in this loop instance and if so, printing the result of changes
-            if (exp.length() != 1 && logicalNotUsed) {
-                System.out.println(exp);
-                continue;
-            }
-
-            /*
             * Logical OR's
             */
 
             //Creating a boolean to keep track (in each loop) whether Logical OR's are used
+            boolean logicalOrParenthesesUsed = false;
             boolean logicalOrUsed = false;
 
+            //Checking for logical OR's in parentheses and solving those first
+            if (exp.contains("(T||T)")) {
+                exp = exp.replaceAll("\\(T\\|\\|T\\)", "T");
+                logicalOrParenthesesUsed = true;
+            }
+            if (exp.contains("(T||F)")) {
+                exp = exp.replaceAll("\\(T\\|\\|F\\)", "T");
+                logicalOrParenthesesUsed = true;
+            }
+            if (exp.contains("(F||T)")) {
+                exp = exp.replaceAll("\\(F\\|\\|T\\)", "T");
+                logicalOrParenthesesUsed = true;
+            }
+            if (exp.contains("(F||F)")) {
+                exp = exp.replaceAll("\\(F\\|\\|F\\)", "F");
+                logicalOrParenthesesUsed = true;
+            }
+
+            //Checking if logical OR's in parentheses are used in this loop instance and if so, printing the result of changes
+            if (exp.length() != 1 && logicalOrParenthesesUsed) {
+                System.out.println(exp);
+                continue;
+            }
+
+            //Checking for logical OR's and solving those
             if (exp.contains("T||T")) {
                 exp = exp.replaceAll("T\\|\\|T", "T");
                 logicalOrUsed = true;
@@ -143,8 +169,34 @@ public class NallakaMLogicalExpressionsLab {
             */
 
             //Creating a boolean to keep track (in each loop) whether Logical AND's are used
+            boolean logicalAndParenthesesUsed = false;
             boolean logicalAndUsed = false;
 
+            //Checking for logical AND's in parentheses and solving those first
+            if (exp.contains("(T&&T)")) {
+                exp = exp.replaceAll("\\(T&&T\\)", "T");
+                logicalAndParenthesesUsed = true;
+            }
+            if (exp.contains("(T&&F)")) {
+                exp = exp.replaceAll("\\(T&&F\\)", "F");
+                logicalAndParenthesesUsed = true;
+            }
+            if (exp.contains("(F&&T)")) {
+                exp = exp.replaceAll("\\(F&&T\\)", "F");
+                logicalAndParenthesesUsed = true;
+            }
+            if (exp.contains("(F&&F)")) {
+                exp = exp.replaceAll("\\(F&&F\\)", "F");
+                logicalAndParenthesesUsed = true;
+            }
+
+            //Checking if logical AND's in parentheses are used in this loop instance and if so, printing the result of changes
+            if (exp.length() != 1 && logicalAndParenthesesUsed) {
+                System.out.println(exp);
+                continue;
+            }
+
+            //Checking for logical AND's and solving them
             if (exp.contains("T&&T")) {
                 exp = exp.replaceAll("T&&T", "T");
                 logicalAndUsed = true;
@@ -165,7 +217,6 @@ public class NallakaMLogicalExpressionsLab {
             //Checking if logical AND's are used in this loop instance and if so, printing the result of changes
             if (exp.length() != 1 && logicalAndUsed) {
                 System.out.println(exp);
-                continue;
             }
         }
         System.out.println(exp);
