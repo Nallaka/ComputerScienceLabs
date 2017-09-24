@@ -22,7 +22,7 @@ public class NallakaMLogicalExpressionsLab {
         Scanner kb = new Scanner(System.in);
         System.out.println("Using appropriate characters(T,F,!,(,),&&,||) provide a logical expression to evaluate(no spaces)::");
         String exp = kb.nextLine();
-        while(exp.length()!=1){
+        while (exp.length() != 1) {
 
             /*
             * Logical NOT's
@@ -41,6 +41,8 @@ public class NallakaMLogicalExpressionsLab {
             //Checking if logical NOT's are used in this loop instance and if so, printing the result of changes
             if (exp.length() != 1 && logicalNotUsed) {
                 System.out.println(exp);
+                //NOTE: Continue is used to ensure that each step doesn't create a previous check.
+                //This keeps the precedence in the right order
                 continue;
             }
 
