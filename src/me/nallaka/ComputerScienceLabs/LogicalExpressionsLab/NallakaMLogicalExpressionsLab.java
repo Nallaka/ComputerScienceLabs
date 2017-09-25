@@ -1,7 +1,20 @@
 package me.nallaka.ComputerScienceLabs.LogicalExpressionsLab;
 
 import java.util.Scanner;
+/**
+ * @dateCreated: 9/21/2017
+ * @dueDate: 9/24/2017
+ * @author: Mithul Nallaka
+ * Purpose: Solve Logical Expressions
+ * Methods: main, evaluate
+ */
 public class NallakaMLogicalExpressionsLab {
+    /**
+     * @Name: main
+     * Purpose: Provide options for inputting a logical expression or exiting the program
+     * Input: None
+     * Return: None
+     */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int choice = -1;
@@ -16,8 +29,14 @@ public class NallakaMLogicalExpressionsLab {
             }else
                 System.out.println("Invalid choice");
         }
-    }
+    }//end main
 
+    /**
+     * @Name: evaluate
+     * Purpose: Evaluate a logical expression (exp)
+     * Input: exp
+     * Return: None
+     */
     public static void evaluate(){
         Scanner kb = new Scanner(System.in);
         System.out.println("Using appropriate characters(T,F,!,(,),&&,||) provide a logical expression to evaluate(no spaces)::");
@@ -169,5 +188,5 @@ public class NallakaMLogicalExpressionsLab {
             }
         }
         System.out.println(exp);
-    }
-}
+    }//end evaluate
+}//end NallakaMLogicalExpressionsLab
