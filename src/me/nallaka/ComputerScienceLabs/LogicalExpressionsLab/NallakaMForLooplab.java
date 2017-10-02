@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class NallakaMForLooplab {
     /**
      * @Name: numberOfCoolNumbers
-     * Purpose: N/A
+     * Purpose: Return total number of cool numbers
      * Input: maxValue
      * Return: totalCoolNumbers
      */
@@ -23,11 +23,11 @@ public class NallakaMForLooplab {
             if (i % 3 == 1 && i % 4 == 1 && i % 5 == 1 && i % 6 == 1) totalCoolNumbers++;
         }
         return totalCoolNumbers;
-    }
+    }//end of numberOfCoolNumbers
 
     /**
      * @Name: greatestCommonDivisor
-     * Purpose: N/A
+     * Purpose: Return greatest common divisor
      * Input: int1, int2
      * Return: gcd
      */
@@ -57,11 +57,11 @@ public class NallakaMForLooplab {
             }
         }
         return gcd;
-    }
+    }//end greatestCommonDivisor
 
     /**
      * @Name: main
-     * Purpose: N/A
+     * Purpose: Ask for user input and provide the correct responses
      * Input: None
      * Return: None
      */
