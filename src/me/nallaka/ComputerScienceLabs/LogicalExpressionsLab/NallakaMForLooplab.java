@@ -7,18 +7,18 @@ import java.util.Scanner;
  * @dateCreated: 9/28/2017
  * @dueDate: N/A
  * Purpose: N/A
- * Methods:
+ * Methods: numberOfCoolNumbers, greatestCommondDivisor, main
  */
 public class NallakaMForLooplab {
     /**
      * @Name: numberOfCoolNumbers
      * Purpose: N/A
-     * Input: naxValue
+     * Input: maxValue
      * Return: totalCoolNumbers
      */
     public static int numberOfCoolNumbers(int maxValue) {
         int totalCoolNumbers = 0;
-
+        //Evaluating number of coolNumbers
         for (int i = 6; i <= maxValue; i++) {
             if (i % 3 == 1 && i % 4 == 1 && i % 5 == 1 && i % 6 == 1) totalCoolNumbers++;
         }
@@ -32,18 +32,28 @@ public class NallakaMForLooplab {
      * Return: gcd
      */
     public static int greatestCommonDivisor(int int1, int int2) {
+        //Creating GCD variables
         int gcd = 0;
-        if (int1 < int2) {
-            for (int i = 1; i <= int1; i++) {
-                if((int1 % i) == 0 && int2 % i == 0) gcd = i;
-            }
-        } else if (int1 > int2) {
-            for (int i = 1; i > int2; i++) {
-                if(int1 % i == 0 && int2 % i == 0) gcd = i;
-            }
-        } else if (int1 == int2) {
-            for (int i = 1; i > int1; i++) {
-                if(int1 % i == 0 && int2 % i == 0) gcd = i;
+        int bigInt = 0;
+        int smallInt = 0;
+
+        //Assigning variables based on input size
+        if (int1 > int2) {
+            bigInt = int1;
+            smallInt = int2;
+        }else if (int1 < int2) {
+            bigInt = int2;
+            smallInt = int1;
+        }else if (int1 == int2) {
+            bigInt = int1;
+            smallInt = int2;
+        }
+
+        //Evaluating and returning GCD
+        for (int i = bigInt; i > 0 ; i--) {
+            if((bigInt % i) == 0 && smallInt % i == 0) {
+                gcd = i;
+                break;
             }
         }
         return gcd;
@@ -105,6 +115,9 @@ public class NallakaMForLooplab {
                     //Quits the menu loop
                     System.out.println("Bye! \n");
                     quit = true;
+                    break;
+                default:
+                    System.out.println("That is an invalid option! Please try again!");
             }
         }
     }//end Main
