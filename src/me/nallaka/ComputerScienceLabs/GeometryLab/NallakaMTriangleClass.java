@@ -33,7 +33,7 @@ public class NallakaMTriangleClass {
     }
 
     public double getArea(NallakaMPointClass a, NallakaMPointClass b, NallakaMPointClass c) {
-        setArea();
+        setArea(Math.abs((a.getX()*(b.getX()-c.getY()) + b.getX()*(c.getY()-a.getY()) + c.getX()*(a.getY()-b.getY()))/2));
         return area;
     }
 }//end NallakaMTriangleClass

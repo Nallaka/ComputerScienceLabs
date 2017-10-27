@@ -8,13 +8,24 @@ package me.nallaka.ComputerScienceLabs.GeometryLab;
  * Methods:
  */
 public class NallakaMRectangleClass {
-    /**
-     * @Name: main
-     * Purpose: N/A
-     * Input: None
-     * Return: None
-     */
-    public static void main(String[] args) {
+    private double perimeter;
+    private double area;
 
-    }//end Main
+    public void setPerimeter(double perimeter) {
+        this.perimeter = perimeter;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
+    }
+
+    public double getPerimeter(NallakaMPointClass a, NallakaMPointClass b, NallakaMPointClass c, NallakaMPointClass d) {
+        setPerimeter(a.distance(b) + b.distance(c) + c.distance(d) + d.distance(a));
+        return perimeter;
+    }
+
+    public double getArea(NallakaMPointClass a, NallakaMPointClass b, NallakaMPointClass c, NallakaMPointClass d) {
+        setArea((1/2)* Math.abs(a.getX()*b.getY() + b.getX()*c.getY() + c.getX()*d.getY() + d.getX()*a.getY() - b.getX()*a.getY() - c.getX()*b.getY()-d.getX()*c.getY()-a.getX()*d.getX()));
+        return area;
+    }
 }//end NallakaMRectangleClass
