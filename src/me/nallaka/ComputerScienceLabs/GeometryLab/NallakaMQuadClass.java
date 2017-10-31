@@ -7,7 +7,7 @@ package me.nallaka.ComputerScienceLabs.GeometryLab;
  * Purpose: N/A
  * Methods:
  */
-public class NallakaMRectangleClass {
+public class NallakaMQuadClass {
     private double perimeter;
     private double area;
     private NallakaMPointClass a;
@@ -15,7 +15,7 @@ public class NallakaMRectangleClass {
     private NallakaMPointClass c;
     private NallakaMPointClass d;
 
-    public NallakaMRectangleClass(NallakaMPointClass a, NallakaMPointClass b, NallakaMPointClass c, NallakaMPointClass d) {
+    public NallakaMQuadClass(NallakaMPointClass a, NallakaMPointClass b, NallakaMPointClass c, NallakaMPointClass d) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -51,8 +51,13 @@ public class NallakaMRectangleClass {
         return perimeter;
     }
 
-    public double getArea(NallakaMPointClass a, NallakaMPointClass b, NallakaMPointClass c, NallakaMPointClass d) {
-        area = ((Math.abs((a.getX()*b.getY() + b.getX()*c.getY() + c.getX()*d.getY() + d.getX()*a.getY() - b.getX()*a.getY() - c.getX()*b.getY()-d.getX()*c.getY()-a.getX()*d.getX())/2)));
+    public double getArea() {
+        double s1 = ((a.distance(b) + b.distance(c) + b.distance(d))/2);
+        double s2 = ((c.distance(d) + d.distance(c) + b.distance(d))/2);
+        double area1 = Math.sqrt(s1*(s1-a.distance(b))*(s1-b.distance(c))*(s1-b.distance(d)));
+        double area2 = Math.sqrt(s2*(s2-c.distance(d))*(s2-d.distance(a))*(s2-b.distance(d)));
+        area = area1 + area2;
+        //area = Math.abs(((a.getX()*b.getY()-a.getY()*b.getX()) + (b.getX()*c.getY()-b.getY()*c.getX()) + (c.getX()*d.getY()-c.getY()*d.getX()) + (d.getX()*a.getY()-d.getY()*a.getX()))/2);
         return area;
     }
 }//end NallakaMRectangleClass

@@ -23,7 +23,7 @@ public class NallakaMGeometryDemo {
         boolean quit = false;
 
         while (!quit) {
-            System.out.println("Welcome to the Main Menu\nPlease choose one of the following choices:\n1) Work with Triangles\n2) Work with Rectangles\n3) Exit the Program ");
+            System.out.println("Welcome to the Main Menu\nPlease choose one of the following choices:\n1) Work with Triangles\n2) Work with Quadrilaterals\n3) Exit the Program ");
             if (scanner.hasNextInt()) {
                 menuChoice = scanner.nextInt();
             } else {
@@ -84,9 +84,9 @@ public class NallakaMGeometryDemo {
                     NallakaMPointClass pointB2 = new NallakaMPointClass(0,0);
                     NallakaMPointClass pointC2 = new NallakaMPointClass(0,0);
                     NallakaMPointClass pointD2 = new NallakaMPointClass(0,0);
-                    NallakaMRectangleClass rectangle = new NallakaMRectangleClass(pointA2, pointB2, pointC2, pointD2);
+                    NallakaMQuadClass quad = new NallakaMQuadClass(pointA2, pointB2, pointC2, pointD2);
                     while (!rectangleQuit) {
-                        System.out.println("Welcome to the Main Menu\nPlease choose one of the following choices:\n1) Create a New Rectangle\n2) Find The Area\n3) Find The Perimeter\n4) Quit to Main Menu");
+                        System.out.println("Welcome to the Main Menu\nPlease choose one of the following choices:\n1) Create a New Quadrilateral\n2) Find The Area\n3) Find The Perimeter\n4) Quit to Main Menu");
                         if (scanner.hasNextInt()) {
                             menuChoice = scanner.nextInt();
                         } else {
@@ -96,28 +96,28 @@ public class NallakaMGeometryDemo {
                         switch (menuChoice) {
                             case 1:
                                 System.out.println("Enter the x value of point A:");
-                                rectangle.getA().setX(scanner.nextInt());
+                                quad.getA().setX(scanner.nextInt());
                                 System.out.println("Enter the y value of point A:");
-                                rectangle.getA().setY(scanner.nextInt());
+                                quad.getA().setY(scanner.nextInt());
                                 System.out.println("Enter the x value of point B:");
-                                rectangle.getB().setX(scanner.nextInt());
+                                quad.getB().setX(scanner.nextInt());
                                 System.out.println("Enter the y value of point B:");
-                                rectangle.getB().setY(scanner.nextInt());
+                                quad.getB().setY(scanner.nextInt());
                                 System.out.println("Enter the x value of point C:");
-                                rectangle.getC().setX(scanner.nextInt());
+                                quad.getC().setX(scanner.nextInt());
                                 System.out.println("Enter the y value of point C:");
-                                rectangle.getC().setY(scanner.nextInt());
+                                quad.getC().setY(scanner.nextInt());
                                 System.out.println("Enter the x value of point D:");
-                                rectangle.getD().setX(scanner.nextInt());
+                                quad.getD().setX(scanner.nextInt());
                                 System.out.println("Enter the y value of point D:");
-                                rectangle.getD().setY(scanner.nextInt());
+                                quad.getD().setY(scanner.nextInt());
                                 System.out.println("All values set!");
                                 break;
                             case 2:
-                                System.out.println(rectangle.getArea(pointA2, pointB2, pointC2, pointD2));
+                                System.out.println(quad.getArea());
                                 break;
                             case 3:
-                                System.out.println(rectangle.getPerimeter());
+                                System.out.println(quad.getPerimeter());
                                 break;
                             case 4:
                                 rectangleQuit = true;

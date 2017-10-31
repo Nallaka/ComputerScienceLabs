@@ -46,7 +46,8 @@ public class NallakaMTriangleClass {
     }
 
     public double getArea(NallakaMPointClass a, NallakaMPointClass b, NallakaMPointClass c) {
-        area = (Math.abs((a.getX()*(b.getX()-c.getY()) + b.getX()*(c.getY()-a.getY()) + c.getX()*(a.getY()-b.getY()))/2));
+        double s =  ((a.distance(b) + b.distance(c) + c.distance(a))/2);
+        area = Math.sqrt(s*(s-a.distance(b))*(s-b.distance(c))*(s-c.distance(a)));
         return area;
     }
 }//end NallakaMTriangleClass
