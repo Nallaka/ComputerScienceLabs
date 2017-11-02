@@ -52,10 +52,10 @@ public class NallakaMQuadClass {
     }
 
     public double getArea() {
-        double s1 = ((a.distance(b) + b.distance(c) + b.distance(d))/2);
-        double s2 = ((c.distance(d) + d.distance(c) + b.distance(d))/2);
-        double area1 = Math.sqrt(s1*(s1-a.distance(b))*(s1-b.distance(c))*(s1-b.distance(d)));
-        double area2 = Math.sqrt(s2*(s2-c.distance(d))*(s2-d.distance(a))*(s2-b.distance(d)));
+        double s1 = ((a.distance(b) + b.distance(c) + c.distance(a))/2);
+        double s2 = ((c.distance(d) + d.distance(a) + c.distance(a))/2);
+        double area1 = Math.sqrt(s1*(s1-a.distance(b))*(s1-b.distance(c))*(s1-c.distance(a)));
+        double area2 = Math.sqrt(s2*(s2-c.distance(d))*(s2-d.distance(a))*(s2-c.distance(a)));
         area = area1 + area2;
         //area = Math.abs(((a.getX()*b.getY()-a.getY()*b.getX()) + (b.getX()*c.getY()-b.getY()*c.getX()) + (c.getX()*d.getY()-c.getY()*d.getX()) + (d.getX()*a.getY()-d.getY()*a.getX()))/2);
         return area;

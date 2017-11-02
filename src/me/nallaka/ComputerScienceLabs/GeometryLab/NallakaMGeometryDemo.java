@@ -95,6 +95,7 @@ public class NallakaMGeometryDemo {
                         }
                         switch (menuChoice) {
                             case 1:
+                                System.out.println("Input the coordinates so that when A is connected to B, B is connected to C, C is connected to D, and D is connected to A, it forms a quadrilateral");
                                 System.out.println("Enter the x value of point A:");
                                 quad.getA().setX(scanner.nextInt());
                                 System.out.println("Enter the y value of point A:");
