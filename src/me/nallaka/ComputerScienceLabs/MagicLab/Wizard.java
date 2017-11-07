@@ -2,8 +2,9 @@ package me.nallaka.ComputerScienceLabs.MagicLab;
 
 public class Wizard {
     private String name;
-    private double health, maxHealth;
+    private double health = 50;
     private int score;
+    private double maxHealth;
 
     private Spell spellOne;
     private Spell spellTwo;
@@ -16,7 +17,19 @@ public class Wizard {
     private Spell shadowWeapon = new Spell("Shadow Sword", 9, 3, 3, 3);
 
 
-    public void castSpell(Spell spell, Wizard wizardCaster, Wizard wizardReceiver) {
+    public void castSpell(int spellChoice, Wizard wizardCaster, Wizard wizardReceiver) {
+        Spell spell = this.spellOne;
+        switch (spellChoice) {
+            case 1:
+                spell = this.spellOne;
+                break;
+            case 2:
+                spell = this.spellTwo;
+                break;
+            case 3:
+                spell = this.spellThree;
+                break;
+        }
         double spellDamage = spell.getSpellDamage(spell);
         if (spellDamage != 0) {
             wizardReceiver.setHealth(wizardReceiver.getHealth() - spellDamage);
@@ -83,7 +96,10 @@ public class Wizard {
         }
     }
 
-    public Wizard() {}
+    public Wizard() {
+        this.score = 0;
+        this.health = 50;
+    }
 
     public String getName() {
         return name;
@@ -95,8 +111,14 @@ public class Wizard {
                 + this.spellThree.toString() + "\n";
     }
 
+    public String getWizardSpellsNames() {
+        return "1) " +this.spellOne.getSpellName() + " \n2) "
+                + this.spellTwo.getSpellName() + "\n3) "
+                + this.spellThree.getSpellName() + "\n";
+    }
+
     public String getAllSpells(){
-        return fireBall.toString() + " \n "
+        return fireBall.toString() + " \n"
                 + arrowRain.toString() + "\n"
                 + thunderbolt.toString() + "\n"
                 + bloodLeech.toString() + "\n"

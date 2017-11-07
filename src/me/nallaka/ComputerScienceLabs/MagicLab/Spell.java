@@ -75,9 +75,7 @@ public class Spell {
 
     @Override
     public String toString() {
-        return "Spell" +
-                "spellName='" + spellName + '\'' +
-                ", spellSpecialAbility='" + spellSpecialAbility + '\'' +
+        return  "spellName='" + spellName + '\'' +
                 ", maxDamage=" + maxDamage +
                 ", minDamage=" + minDamage +
                 ", critChance=" + critChance +
