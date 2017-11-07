@@ -5,16 +5,16 @@ public class Wizard {
     private double health, maxHealth;
     private int score;
 
-    Spell fireBall = new Spell("FireBall", 8, 2, .2, .3);
-    Spell arrowRain = new Spell("Arrow Rain", 6, 2, .3, .2 );
-    Spell thunderbolt = new Spell("ThunderBolt", 10, 5, .5, .7);
-    Spell bloodLeech = new Spell("Blood Leech", 10, 5, .4, .6);
-    Spell shadowWeapon = new Spell("Shadow Sword", 9, 3, .3, .3);
+    private Spell fireBall = new Spell("FireBall", 8, 2, 2, 3);
+    private Spell arrowRain = new Spell("Arrow Rain", 6, 2, 3, 2);
+    private Spell thunderbolt = new Spell("ThunderBolt", 10, 5, 5, 7);
+    private Spell bloodLeech = new Spell("Blood Leech", 10, 5, 4, 6);
+    private Spell shadowWeapon = new Spell("Shadow Sword", 9, 3, 3, 3);
 
     public void castSpell(Spell spell, Wizard wizardCaster, Wizard wizardReciever) {
         double spellDamage = spell.getSpellDamage(spell);
         if (spellDamage != 0) {
-            wizardReciever.setHealth(wizardReciever.getMaxHealth() - spellDamage);
+            wizardReciever.setHealth(wizardReciever.getHealth() - spellDamage);
             System.out.println(wizardCaster.getName() + " hit " + wizardReciever.getName() + " for " + spellDamage + " hp.");
         } else {
             System.out.println("The caster missed!");
@@ -29,6 +29,14 @@ public class Wizard {
 
     public String getName() {
         return name;
+    }
+
+    public String getSpells(){
+        return fireBall.toString() + " \n "
+                + arrowRain.toString() + "\n"
+                + thunderbolt.toString() + "\n"
+                + bloodLeech.toString() + "\n"
+                + shadowWeapon.toString() + "\n";
     }
 
     public double getHealth() {

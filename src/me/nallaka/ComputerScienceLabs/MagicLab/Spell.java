@@ -14,8 +14,12 @@ public class Spell {
     }
 
     public double getSpellDamage(Spell spell) {
-        if (Math.random()*1 > spell.getMissChance()) {
-            return Math.random()*1+spell.getMinDamage();
+        if (Math.random()*10 > spell.getMissChance()) {
+            if (Math.random()*10 <= spell.getCritChance()){
+                return 2*(Math.random()*1+spell.getMinDamage());
+            } else {
+                return Math.random() * 1 + spell.getMinDamage();
+            }
         } else {
             return 0;
         }
