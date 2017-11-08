@@ -21,6 +21,7 @@ public class MagicDuelDemo {
                     boolean roundQuit = false;
                     Wizard wizardOne = new Wizard();
                     Wizard wizardTwo = new Wizard();
+                    Duel duel = new Duel();
                     while (!gameQuit) {
                         System.out.println("Welcome to the Game Menu. Please choose one of the following options:\n1) Duel! \n2) View Spell Stats\n3) Quit");
                         if (scanner.hasNextInt()) {
@@ -31,8 +32,9 @@ public class MagicDuelDemo {
                         }
                         switch (menuChoice) {
                             case 1:
-                                Duel duel = new Duel();
                                 duel.setWizardStats(wizardOne, wizardTwo);
+                                duel.setWizardSpells(wizardOne);
+                                duel.setWizardSpells(wizardTwo);
                                 while (!roundQuit) {
                                     wizardOne.setHealth(50);
                                     wizardTwo.setHealth(50);
@@ -51,7 +53,7 @@ public class MagicDuelDemo {
                                 }
                                 break;
                             case 2:
-                                System.out.println(wizardOne.getAllSpells());
+                                System.out.println(duel.spellToString());
                                 break;
                             case 3:
                                 gameQuit = true;

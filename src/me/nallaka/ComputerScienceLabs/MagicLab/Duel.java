@@ -3,7 +3,11 @@ package me.nallaka.ComputerScienceLabs.MagicLab;
 import java.util.Scanner;
 
 public class Duel {
-    private int runningGameTotal;
+    private Spell fireBall = new Spell("FireBall", 8, 2, 2, 3);
+    private Spell arrowRain = new Spell("Arrow Rain", 6, 2, 3, 2);
+    private Spell thunderbolt = new Spell("ThunderBolt", 10, 5, 5, 7);
+    private Spell bloodLeech = new Spell("Blood Leech", 10, 5, 4, 6);
+    private Spell shadowWeapon = new Spell("Shadow Sword", 9, 3, 3, 3);
 
     private Scanner scanner = new Scanner(System.in);
 
@@ -20,7 +24,7 @@ public class Duel {
         }
         if (wizardOne.getHealth() <= 0) {
             wizardTwo.setScore(wizardTwo.getScore() + 1);
-            System.out.println(wizardTwo.getName() + " won the round with " + wizardTwo.getHealth() + " health remaining. Total score total is " + wizardTwo.getScore());
+            System.out.println(wizardTwo.getName() + " won the round! Total score total is " + wizardTwo.getScore());
         } else if (wizardTwo.getHealth() <= 0) {
             wizardOne.setScore(wizardOne.getScore()+1);
             System.out.println(wizardOne.getName() + " won the round with " + wizardOne.getHealth() + " health remaining. Total score total is " + wizardOne.getScore());
@@ -32,17 +36,67 @@ public class Duel {
         wizardOne.setName(scanner.nextLine());
         System.out.println("Wizard Two: Enter your name:");
         wizardTwo.setName(scanner.nextLine());
-        System.out.println(wizardOne.getName() + ": Choose 3 of the following:\n1) Fireball\n2) Arrow Rain\n3) Thunder Bolt\n4) Blood Leech\n5) Shadow Sword");
-        wizardOne.setWizardSpells(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
-        System.out.println(wizardTwo.getName() + ": Choose 3 of the following:\n1) Fireball\n2) Arrow Rain\n3) Thunder Bolt\n4) Blood Leech\n5) Shadow Sword");
-        wizardTwo.setWizardSpells(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
     }
 
-    public int getRunningGameTotal() {
-        return runningGameTotal;
+    public void setWizardSpells(Wizard wizard) {
+        System.out.println(wizard.getName() + ": Choose 3 of the following:\n1) Fireball\n2) Arrow Rain\n3) Thunder Bolt\n4) Blood Leech\n5) Shadow Sword");
+        int spellOne = scanner.nextInt();
+        int spellTwo = scanner.nextInt();
+        int spellThree = scanner.nextInt();
+        switch (spellOne) {
+            case 1:
+                wizard.setSpellOne(fireBall);
+                break;
+            case 2:
+                wizard.setSpellOne(arrowRain);
+                break;
+            case 3:
+                wizard.setSpellOne(thunderbolt);
+                break;
+            case 4:
+                wizard.setSpellOne(bloodLeech);
+                break;
+            case 5:
+                wizard.setSpellOne(shadowWeapon);
+                break;
+        }
+        switch (spellTwo) {
+            case 1:
+                wizard.setSpellTwo(fireBall);
+                break;
+            case 2:
+                wizard.setSpellTwo(thunderbolt);
+                break;
+            case 3:
+                wizard.setSpellTwo(thunderbolt);
+                break;
+            case 4:
+                wizard.setSpellTwo(bloodLeech);
+                break;
+            case 5:
+                wizard.setSpellTwo(shadowWeapon);
+                break;
+        }
+        switch (spellThree) {
+            case 1:
+                wizard.setSpellThree(fireBall);
+                break;
+            case 2:
+                wizard.setSpellThree(arrowRain);
+                break;
+            case 3:
+                wizard.setSpellThree(thunderbolt);
+                break;
+            case 4:
+                wizard.setSpellThree(bloodLeech);
+                break;
+            case 5:
+                wizard.setSpellThree(shadowWeapon);
+                break;
+        }
     }
 
-    public void setRunningGameTotal(int runningGameTotal) {
-        this.runningGameTotal = runningGameTotal;
+    public String spellToString() {
+        return fireBall.toString() + "\n" + arrowRain.toString() + "\n" + thunderbolt.toString() + "\n" + bloodLeech.toString() + "\n" + shadowWeapon.toString();
     }
 }

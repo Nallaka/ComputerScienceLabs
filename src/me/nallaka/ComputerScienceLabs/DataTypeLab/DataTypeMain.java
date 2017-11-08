@@ -1,21 +1,26 @@
+/*
 package me.nallaka.DataTypeLab;
 
+*/
 /**
  * @author: Mithul Nallaka
  * @dateCreated: 8/28/2017
  * @duesDate: Purpose:
  * Methods:
- */
+ *//*
+
 public class DataTypeMain {
-    /**
+    */
+/**
      * @Name: main
      * Purpose: Print out Person and total stats
      * Input: none
      * Return: none
-     */
+     *//*
+
     public static void main(String[] args) {
 
-        Person pardhav = new Person("Pardhav",'K', 15, 3, 12, false);
+        me.nallaka.DataTypeLab.Person pardhav = new Person("Pardhav",'K', 15, 3, 12, false);
         Person mac = new Person("Macaulay", 'V', 15, 2, 12, false);
         Person landon = new Person("Landon", 'W', 16, 4, 12, false);
         Person holden = new Person("Holden", 'D', 16, 4, 12, true);
@@ -32,3 +37,4 @@ public class DataTypeMain {
 
     }//end Main
 }//end DataTypeMain
+*/
