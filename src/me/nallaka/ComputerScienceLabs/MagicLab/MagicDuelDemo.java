@@ -8,11 +8,11 @@ public class MagicDuelDemo {
         int menuChoice;
         boolean quit = false;
         while (!quit) {
-            System.out.println("Welcome to the Main Menu. Please choose one of the following options:\n1) Start a New Duel\n2)Quit" );
+            System.out.println("Welcome to the Main Menu. Please choose one of the following options:\n1) Start a New Duel\n2) Quit" );
             if (scanner.hasNextInt()) {
                 menuChoice = scanner.nextInt();
             } else {
-                System.out.println("Please use a valid input");
+                System.out.println("Please use a valid input!");
                 continue;
             }
             switch (menuChoice) {
@@ -26,7 +26,7 @@ public class MagicDuelDemo {
                         if (scanner.hasNextInt()) {
                             menuChoice = scanner.nextInt();
                         } else {
-                            System.out.println("Please use a valid input");
+                            System.out.println("Please use a valid input!");
                             continue;
                         }
                         switch (menuChoice) {
@@ -39,7 +39,7 @@ public class MagicDuelDemo {
                                 wizardOne.setWizardSpells(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
                                 System.out.println("Wizard Two: Choose 3 of the following:\n1) Fireball\n2) Arrow Rain\n3) Thunder Bolt\n4) Blood Leech\n5) Shadow Sword");
                                 wizardTwo.setWizardSpells(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
-                                while (roundQuit) {
+                                while (!roundQuit) {
                                     wizardOne.setHealth(50);
                                     wizardTwo.setHealth(50);
                                     while (wizardOne.getHealth() > 0 || wizardTwo.getHealth() > 0) {
@@ -59,26 +59,25 @@ public class MagicDuelDemo {
                                     }
                                     if (wizardOne.getScore() == 3) {
                                         System.out.println(wizardOne.getName() + " won the game!");
-
+                                        roundQuit = true;
                                     } else {
                                         System.out.println(wizardTwo.getName() + " won the game!");
+                                        roundQuit = true;
                                     }
                                 }
-
                                 break;
                             case 2:
                                 System.out.println(wizardOne.getAllSpells());
-                            case 3:
-                                quit = true;
                                 break;
-
+                            case 3:
+                                gameQuit = true;
+                                break;
                         }
                     }
                     break;
                 case 2:
                     quit = true;
                     break;
-
             }
         }
     }

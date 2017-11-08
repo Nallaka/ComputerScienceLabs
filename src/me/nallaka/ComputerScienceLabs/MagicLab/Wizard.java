@@ -2,9 +2,8 @@ package me.nallaka.ComputerScienceLabs.MagicLab;
 
 public class Wizard {
     private String name;
-    private double health = 50;
+    private double health;
     private int score;
-    private double maxHealth;
 
     private Spell spellOne;
     private Spell spellTwo;
@@ -39,63 +38,6 @@ public class Wizard {
         }
     }
 
-    public Wizard(String name, double health, double maxHealth, int spellOne, int spellTwo, int spellThree) {
-        this.name = name;
-        this.health = health;
-        this.maxHealth = maxHealth;
-        switch (spellOne) {
-            case 1:
-                this.spellOne = fireBall;
-                break;
-            case 2:
-                this.spellOne = arrowRain;
-                break;
-            case 3:
-                this.spellOne = thunderbolt;
-                break;
-            case 4:
-                this.spellOne = bloodLeech;
-                break;
-            case 5:
-                this.spellOne = shadowWeapon;
-                break;
-        }
-        switch (spellTwo) {
-            case 1:
-                this.spellTwo = fireBall;
-                break;
-            case 2:
-                this.spellTwo = arrowRain;
-                break;
-            case 3:
-                this.spellTwo = thunderbolt;
-                break;
-            case 4:
-                this.spellTwo = bloodLeech;
-                break;
-            case 5:
-                this.spellTwo = shadowWeapon;
-                break;
-        }
-        switch (spellThree) {
-            case 1:
-                this.spellThree = fireBall;
-                break;
-            case 2:
-                this.spellThree = arrowRain;
-                break;
-            case 3:
-                this.spellThree = thunderbolt;
-                break;
-            case 4:
-                this.spellThree = bloodLeech;
-                break;
-            case 5:
-                this.spellThree = shadowWeapon;
-                break;
-        }
-    }
-
     public Wizard() {
         this.score = 0;
         this.health = 50;
@@ -103,12 +45,6 @@ public class Wizard {
 
     public String getName() {
         return name;
-    }
-
-    public String getWizardSpells() {
-        return "1) " +this.spellOne.toString() + " \n2) "
-                + this.spellTwo.toString() + "\n3) "
-                + this.spellThree.toString() + "\n";
     }
 
     public String getWizardSpellsNames() {
@@ -129,10 +65,6 @@ public class Wizard {
         return health;
     }
 
-    public double getMaxHealth() {
-        return maxHealth;
-    }
-
     public int getScore() {
         return score;
     }
@@ -143,10 +75,6 @@ public class Wizard {
 
     public void setHealth(double health) {
         this.health = health;
-    }
-
-    public void setMaxHealth(double maxHealth) {
-        this.maxHealth = maxHealth;
     }
 
     public void setScore(int score) {
