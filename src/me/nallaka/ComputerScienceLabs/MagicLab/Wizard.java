@@ -46,7 +46,6 @@ public class Wizard {
                 + this.spellThree.getSpellName() + "\n";
     }
 
-
     public double getHealth() {
         return health;
     }
