@@ -46,11 +46,14 @@ public class Array {
             }
         }
         int[] tempArray = new int[randomIntArray.length-totalOccurances];
-        for (int i = 0; i < tempArray.length; i++) {
+        int newArrayIndex = 0;
+        for (int i = 0; i < randomIntArray.length; i++) {
             if (randomIntArray[i] != value) {
-                tempArray[i] = randomIntArray[i];
+                tempArray[newArrayIndex] = randomIntArray[i];
+                newArrayIndex++;
             }
         }
+
         return randomIntArray;
     }
 
