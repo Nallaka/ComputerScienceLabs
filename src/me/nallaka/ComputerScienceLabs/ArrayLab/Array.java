@@ -40,8 +40,8 @@ public class Array {
     public int[] removeArray(int value) {
         //takes in value to remove and returns new array without the removed values
         int totalOccurances = 0;
-        for (int i = 0; i < randomIntArray.length; i++) {
-            if (randomIntArray[i] == value) {
+        for (int aRandomIntArray : randomIntArray) {
+            if (aRandomIntArray == value) {
                 totalOccurances++;
             }
         }
@@ -52,6 +52,13 @@ public class Array {
             }
         }
         return randomIntArray;
+    }
+
+    public String printMethodInfo() {
+        return ("sumArray takes in integers as bounds and returns the sum of the values between those indexes" +
+                "\ncountArray takes in a value and returns the number of occurrences of that value" +
+                "\nmultiplyArray take sin a value and returns the array multiplied by that value" +
+                "\nremoveArray takes in a value to remove and returns a new array without the removed values");
     }
 
 }
