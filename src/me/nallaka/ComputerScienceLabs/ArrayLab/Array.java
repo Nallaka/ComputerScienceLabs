@@ -1,11 +1,13 @@
 package me.nallaka.ComputerScienceLabs.ArrayLab;
 
+import java.util.Arrays;
+
 public class Array {
     private int[] randomIntArray = new int[25];
 
     public Array(){
         for (int i = 0; i < randomIntArray.length; i++) {
-            randomIntArray[1] = (int) (Math.random() * 11);
+            randomIntArray[i] = (int) (Math.random() * 11);
         }
     }
 
@@ -21,7 +23,7 @@ public class Array {
         //Takes in avalue to look for and returns the number of occurances
         int runningTotal = 0;
         for (int i = 0; i < randomIntArray.length; i++) {
-            if (i == value) {
+            if (randomIntArray[i] == value) {
                 runningTotal++;
             }
         }
@@ -54,7 +56,7 @@ public class Array {
             }
         }
 
-        return randomIntArray;
+        return tempArray;
     }
 
     public String printMethodInfo() {
@@ -64,4 +66,8 @@ public class Array {
                 "\nremoveArray takes in a value to remove and returns a new array without the removed values");
     }
 
+    @Override
+    public String toString() {
+        return "The Array is: " + Arrays.toString(randomIntArray);
+    }
 }
