@@ -63,7 +63,8 @@ public class ArrayDemo {
         return ("sumArray takes in integers as bounds and returns the sum of the values between those indexes" +
                 "\ncountArray takes in a value and returns the number of occurrences of that value" +
                 "\nmultiplyArray take sin a value and returns the array multiplied by that value" +
-                "\nremoveArray takes in a value to remove and returns a new array without the removed values");
+                "\nremoveArray takes in a value to remove and returns a new array without the removed values" +
+                "\nregenArray creates a new array.\n");
     }
 
 
@@ -109,7 +110,7 @@ public class ArrayDemo {
                             case 2:
                                 System.out.println("Please input a value to look for:");
                                 int value = scanner.nextInt();
-                                System.out.println("The value " + value + " occurs " + countArray(randomIntArray, value) + " many times in the array.");
+                                System.out.println("The value " + value + " occurs " + countArray(randomIntArray, value) + " times in the array.");
                                 break;
                             case 3:
                                 System.out.println("Input a value to multiply by:");
