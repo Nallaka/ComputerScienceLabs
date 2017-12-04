@@ -106,29 +106,35 @@ public class ArrayDemo {
                                 boundOne = scanner.nextInt();
                                 boundTwo = scanner.nextInt();
                                 System.out.println("The sum of the numbers inbetween indexes " + boundOne + " and " + boundTwo + " is " + sumArray(randomIntArray, boundOne, boundTwo));
+                                System.out.println();
                                 break;
                             case 2:
                                 System.out.println("Please input a value to look for:");
                                 int value = scanner.nextInt();
                                 System.out.println("The value " + value + " occurs " + countArray(randomIntArray, value) + " times in the array.");
+                                System.out.println();
                                 break;
                             case 3:
                                 System.out.println("Input a value to multiply by:");
                                 int multiplyValue = scanner.nextInt();
                                 System.out.println("The current array multiplied by " + multiplyValue + " is " + Arrays.toString(multiplyArray(randomIntArray, multiplyValue)));
+                                System.out.println();
                                 break;
                             case 4:
                                 System.out.println("Please input a value to remove:");
                                 int valueToRemove = scanner.nextInt();
                                 System.out.println("The array without the value " + valueToRemove + " is " + Arrays.toString(removeArray(randomIntArray, valueToRemove)));
+                                System.out.println();
                                 break;
                             case 5:
                                 System.out.println("Generating a new array...");
                                 regenArray(randomIntArray);
                                 System.out.println(Arrays.toString(randomIntArray));
+                                System.out.println();
                                 break;
                             case 6:
                                 System.out.println(printMethodInfo());
+                                System.out.println();
                                 break;
                             case 7:
                                 arrayQuit = true;
