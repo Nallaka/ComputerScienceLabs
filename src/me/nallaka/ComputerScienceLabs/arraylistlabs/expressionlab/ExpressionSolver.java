@@ -5,7 +5,39 @@ import java.util.Scanner;
 
 public class ExpressionSolver {
 
-  public static void solveExpression(String expression) {
+  public static void multiply(ArrayList<String> expressionList) {
+    int index = expressionList.indexOf("*");
+    int answer = Integer.parseInt(expressionList.get(index-1)) * Integer.parseInt(expressionList.get(index+1));
+    expressionList.set(index - 1, Integer.toString(answer));
+    expressionList.remove(index + 1);
+    expressionList.remove(index);
+  }
+
+  public  void divide(ArrayList<String> expressionList) {
+    int index = expressionList.indexOf("/");
+    int answer = Integer.parseInt(expressionList.get(index-1)) / Integer.parseInt(expressionList.get(index+1));
+    expressionList.set(index - 1, Integer.toString(answer));
+    expressionList.remove(index + 1);
+    expressionList.remove(index);
+  }
+
+  public  void add(ArrayList<String> expressionList) {
+    int index = expressionList.indexOf("+");
+    int answer = Integer.parseInt(expressionList.get(index-1)) + Integer.parseInt(expressionList.get(index+1));
+    expressionList.set(index - 1, Integer.toString(answer));
+    expressionList.remove(index + 1);
+    expressionList.remove(index);
+  }
+
+  public void subtract(ArrayList<String> expressionList) {
+    int index = expressionList.indexOf("-");
+    int answer = Integer.parseInt(expressionList.get(index-1)) - Integer.parseInt(expressionList.get(index+1));
+    expressionList.set(index - 1, Integer.toString(answer));
+    expressionList.remove(index + 1);
+    expressionList.remove(index);
+  }
+
+  public void solveExpression(String expression) {
     Scanner chopper = new Scanner(expression);
     ArrayList<String> expressionList = new ArrayList<>();
 
@@ -13,53 +45,40 @@ public class ExpressionSolver {
       expressionList.add(chopper.next());
     }
 
-    while (expressionList.contains("+") || expressionList.contains("-") || expressionList
-        .contains("*") || expressionList.contains("/")) {
-      if (expressionList.contains("*") || expressionList.contains("/")) {
-        if ((expressionList.indexOf("*") < expressionList.indexOf("/")) || (
-            expressionList.contains("*") && !expressionList.contains("/"))) {
-          int index = expressionList.indexOf("*");
-          int answer = Integer.parseInt(expressionList.get(index - 1)) * Integer
-              .parseInt(expressionList.get(index + 1));
-          expressionList.set(index - 1, Integer.toString(answer));
-          expressionList.remove(index + 1);
-          expressionList.remove(index);
+    while (expressionList.contains("*") || expressionList.contains("/")) {
+      if (expressionList.contains("*") && expressionList.contains("/")) {
+        if (expressionList.indexOf("*") < expressionList.indexOf("/")) {
+          multiply(expressionList);
+          continue;
         }
 
-        if ((expressionList.indexOf("/") < expressionList.indexOf("*")) || (
-            expressionList.contains("/") && !expressionList.contains("*"))) {
-          int index = expressionList.indexOf("/");
-          int answer = Integer.parseInt(expressionList.get(index - 1)) / Integer
-              .parseInt(expressionList.get(index + 1));
-          expressionList.set(index - 1, Integer.toString(answer));
-          expressionList.remove(index + 1);
-          expressionList.remove(index);
+        if (expressionList.indexOf("*") > expressionList.indexOf("/")) {
+          divide(expressionList);
         }
+      } else if (expressionList.contains("*") && !expressionList.contains("/")) {
+        multiply(expressionList);
+      } else if (expressionList.contains("/") && !expressionList.contains("*")) {
+        divide(expressionList);
       }
-
-      if (expressionList.contains("+") || expressionList.contains("-")) {
-        if ((expressionList.indexOf("+") < expressionList.indexOf("-")) || (
-            expressionList.contains("+") && !expressionList.contains("-"))) {
-          int index = expressionList.indexOf("+");
-          int answer = Integer.parseInt(expressionList.get(index - 1)) + Integer
-              .parseInt(expressionList.get(index + 1));
-          expressionList.set(index - 1, Integer.toString(answer));
-          expressionList.remove(index + 1);
-          expressionList.remove(index);
-        }
-
-        if ((expressionList.indexOf("-") < expressionList.indexOf("+")) || (
-            expressionList.contains("-") && !expressionList.contains("+"))) {
-          int index = expressionList.indexOf("-");
-          int answer = Integer.parseInt(expressionList.get(index - 1)) - Integer
-              .parseInt(expressionList.get(index + 1));
-          expressionList.set(index - 1, Integer.toString(answer));
-          expressionList.remove(index + 1);
-          expressionList.remove(index);
-        }
-      }
-      System.out.println(expression + " = " + expressionList.get(0));
     }
+
+    while (expressionList.contains("+") || expressionList.contains("-")) {
+      if (expressionList.contains("+") && expressionList.contains("-")) {
+        if (expressionList.indexOf("+") < expressionList.indexOf("-")) {
+          add(expressionList);
+          continue;
+        }
+
+        if (expressionList.indexOf("+") > expressionList.indexOf("-")) {
+          subtract(expressionList);
+        }
+      } else if (expressionList.contains("+") && !expressionList.contains("-")) {
+        add(expressionList);
+      } else if (expressionList.contains("-") && !expressionList.contains("+")) {
+        subtract(expressionList);
+      }
+    }
+    System.out.println(expression + " = " + expressionList.get(0));
   }
 
   public static void main(String[] args) {
@@ -80,8 +99,8 @@ public class ExpressionSolver {
           System.out.println("Please input an expression with spaces in between each value");
           Scanner input = new Scanner(System.in);
           String expression = input.nextLine();
-
-          solveExpression(expression);
+          ExpressionSolver expressionSolver = new ExpressionSolver();
+          expressionSolver.solveExpression(expression);
           break;
         case 2:
           System.out.println("Bye! Thank you for using the program!");
