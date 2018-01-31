@@ -66,7 +66,7 @@ public class MadLibLab {
             madLib = madLib.concat(word + " ");
           }
 
-          System.out.println(madLib);
+          System.out.println(madLib + "\n");
           break;
         case 2:
           System.out.println("Bye! Thank you for using the program!");
