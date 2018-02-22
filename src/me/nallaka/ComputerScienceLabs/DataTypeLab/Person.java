@@ -1,4 +1,4 @@
-package me.nallaka.DataTypeLab;
+package me.nallaka.ComputerScienceLabs.DataTypeLab;
 
 /**
  * @author: Mithul Nallaka
