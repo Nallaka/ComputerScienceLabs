@@ -70,6 +70,7 @@ public class SortByVowels {
     for (Word word: words) {
       System.out.println(word.getWord());
     }
+    //test
   }
 
 }
