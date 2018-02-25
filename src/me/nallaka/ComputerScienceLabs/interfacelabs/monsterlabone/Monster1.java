@@ -65,14 +65,15 @@ public class Monster1 {
           Monster1 monster1 = new Monster1(nameOne, sizeOne);
           Monster1 monster2 = new Monster1(nameTwo, sizeTwo);
 
+          System.out.println();
           System.out.println(monster1.toString());
           System.out.println(monster2.toString());
           System.out.println();
 
           if (monster1.isBigger(monster2)) {
-            System.out.println("Monster " + monster1.getName() + "is bigger than Monster 2");
+            System.out.println("Monster 1 is smaller than Monster 2");
           } else {
-            System.out.println("Monster " + monster1.getName() + "is smaller than Monster 2");
+            System.out.println("Monster 1 is smaller than Monster 2");
           }
 
           System.out.println();
@@ -82,6 +83,7 @@ public class Monster1 {
           } else {
             System.out.println("Monster one does not have the same name as Monster two.");
           }
+          System.out.println();
           break;
         case 2:
           quit = true;
