@@ -9,4 +9,9 @@ public class Principal extends Person {
   public void makeAnnouncement() {
     System.out.println("RANDOM DANCE PARTY TIME! Flood the halls and 'DO THE HARLEM SHAKE'");
   }
+
+  @Override
+  public void doJob() {
+    makeAnnouncement();
+  }
 }

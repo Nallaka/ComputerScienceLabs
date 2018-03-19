@@ -13,6 +13,11 @@ public class Teacher extends Person {
   }
 
   @Override
+  public void doJob() {
+    teachLesson();
+  }
+
+  @Override
   public String toString() {
     return "Person{" +
         ", name='" + this.getName() + '\'' +

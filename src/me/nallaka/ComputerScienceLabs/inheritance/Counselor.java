@@ -9,4 +9,9 @@ public class Counselor extends Person {
   public void giveAdvice() {
     System.out.println("You'll do great in College! You have great grades and colleges are knocking at your door!");
   }
+
+  @Override
+  public void doJob() {
+    giveAdvice();
+  }
 }

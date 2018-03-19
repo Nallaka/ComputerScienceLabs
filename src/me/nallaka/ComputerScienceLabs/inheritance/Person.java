@@ -34,6 +34,10 @@ public class Person {
     this.gender = gender;
   }
 
+  public void doJob() {
+
+  }
+
   @Override
   public String toString() {
     return "Person{" +
